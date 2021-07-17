@@ -26,11 +26,7 @@ app.listen(PORT, async () => {
   try {
     await createConnection({
       type: "postgres",
-      entities: [
-        process.env.NODE_ENV === "development"
-          ? "./src/entity/*.ts"
-          : "./build/entity/*.js",
-      ],
+      entities: [__dirname + "/entity/*.js"],
     });
     console.log(`Server running on http://localhost:${PORT}`);
   } catch (err) {

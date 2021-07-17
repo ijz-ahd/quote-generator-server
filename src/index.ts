@@ -5,8 +5,6 @@ import express from "express";
 import authRoute from "./routes/auth";
 import favoriteRoute from "./routes/favorites";
 import cors from "cors";
-import User from "./entity/User";
-import Favorite from "./entity/Favorites";
 
 const app = express();
 const PORT = process.env.PORT || 5000;

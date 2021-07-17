@@ -9,7 +9,7 @@ import {
 } from "typeorm";
 import User from "./User";
 
-@Entity("favorite")
+@Entity("favorites")
 export default class Favorite extends BaseEntity {
   constructor(favorite: Partial<Favorite>) {
     super();

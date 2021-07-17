@@ -13,7 +13,7 @@ import { classToPlain, Exclude } from "class-transformer";
 import bcrypt from "bcrypt";
 import Favorite from "./Favorites";
 
-@Entity("user")
+@Entity("users")
 export default class User extends BaseEntity {
   constructor(user: Partial<User>) {
     super();

@@ -11,10 +11,10 @@ import {
 import { IsEmail, Length } from "class-validator";
 import { classToPlain, Exclude } from "class-transformer";
 import bcrypt from "bcrypt";
-import Favorite from "./Favorites";
+import { Favorite } from "./Favorites";
 
 @Entity("users")
-export default class User extends BaseEntity {
+export class User extends BaseEntity {
   constructor(user: Partial<User>) {
     super();
     Object.assign(this, user);

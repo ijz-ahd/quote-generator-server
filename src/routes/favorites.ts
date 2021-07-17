@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
-import Favorite from "../entity/Favorites";
-import User from "../entity/User";
+import { Favorite } from "../entity/Favorites";
+import { User } from "../entity/User";
 import auth from "../middlewares/auth";
 
 const addFavorites = async (req: Request, res: Response) => {

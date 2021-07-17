@@ -7,10 +7,10 @@ import {
   UpdateDateColumn,
   BaseEntity,
 } from "typeorm";
-import User from "./User";
+import { User } from "./User";
 
 @Entity("favorites")
-export default class Favorite extends BaseEntity {
+export class Favorite extends BaseEntity {
   constructor(favorite: Partial<Favorite>) {
     super();
     Object.assign(this, favorite);

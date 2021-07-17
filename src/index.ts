@@ -24,10 +24,7 @@ app.get("/", (_: express.Request, res: express.Response) =>
 
 app.listen(PORT, async () => {
   try {
-    await createConnection({
-      type: "postgres",
-      entities: [User, Favorite],
-    });
+    await createConnection();
     console.log(`Server running on http://localhost:${PORT}`);
   } catch (err) {
     console.log(err);

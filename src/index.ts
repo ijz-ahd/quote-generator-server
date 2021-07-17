@@ -16,6 +16,10 @@ app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use("/api/auth", authRoute);
 app.use("/api/favorites", favoriteRoute);
 
+app.get("/", (_: express.Request, res: express.Response) =>
+  res.send("Hello, World!")
+);
+
 app.listen(PORT, async () => {
   try {
     await createConnection({

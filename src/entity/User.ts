@@ -1,16 +1,33 @@
-import { Entity, Column, BeforeInsert, OneToMany } from "typeorm";
+import {
+  Entity,
+  Column,
+  BeforeInsert,
+  OneToMany,
+  CreateDateColumn,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+  BaseEntity,
+} from "typeorm";
 import { IsEmail, Length } from "class-validator";
-import { Exclude } from "class-transformer";
-import bcrypt = require("bcrypt");
-import BaseModel from "./BaseModel";
+import { classToPlain, Exclude } from "class-transformer";
+import bcrypt from "bcrypt";
 import Favorite from "./Favorites";
 
 @Entity("users")
-export default class User extends BaseModel {
+export default class User extends BaseEntity {
   constructor(user: Partial<User>) {
     super();
     Object.assign(this, user);
   }
+
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 
   @IsEmail()
   @Column({ unique: true })
@@ -30,5 +47,9 @@ export default class User extends BaseModel {
   @BeforeInsert()
   async hashPassword() {
     this.password = await bcrypt.hash(this.password, 6);
+  }
+
+  toJSON() {
+    return classToPlain(this);
   }
 }

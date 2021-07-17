@@ -1,9 +1,9 @@
 import { isEmpty, validate } from "class-validator";
 import { Request, Response, Router } from "express";
 import User from "../entity/User";
-import bcrypt = require("bcrypt");
-import jwt = require("jsonwebtoken");
-import cookie = require("cookie");
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import cookie from "cookie";
 import auth from "../middlewares/auth";
 
 // register user

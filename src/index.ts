@@ -7,6 +7,7 @@ import favoriteRoute from "./routes/favorites";
 import cors from "cors";
 import { User } from "./entity/User";
 import { Favorite } from "./entity/Favorite";
+import { Client } from "pg";
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const app = express();
@@ -39,6 +40,14 @@ app.listen(PORT, async () => {
         ssl: true,
       },
     });
+
+    const client = new Client({
+      connectionString: process.env.DB_URL,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+    });
+    client.connect();
     console.log(`Server running on http://localhost:${PORT}`);
   } catch (err) {
     console.log(err);

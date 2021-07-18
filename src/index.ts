@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://quote-generator-3nfu55yb7-ijz-ahd.vercel.app",
+    origin: "https://quote-generator-8of2snd9o-ijz-ahd.vercel.app",
     credentials: true,
   })
 );

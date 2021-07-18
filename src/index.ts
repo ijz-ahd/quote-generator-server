@@ -26,8 +26,17 @@ app.listen(PORT, async () => {
   try {
     await createConnection({
       type: "postgres",
-      entities: [User, Favorite],
+      port: 5432,
+      entities: [User, Favorite, __dirname + "/../**/**.entity{.ts,.js}"],
       url: process.env.DB_URL,
+      host: "ec2-52-45-183-77.compute-1.amazonaws.com",
+      username: "ftiwypnzmkfkld",
+      password:
+        "4d062fda27ceb585b3b1082027d04126f636c2e05490cca6e99c9bba6ae640ee",
+      database: "ddu2q8mekqva16",
+      extra: {
+        ssl: true,
+      },
     });
     console.log(`Server running on http://localhost:${PORT}`);
   } catch (err) {

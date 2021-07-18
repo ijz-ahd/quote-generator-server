@@ -20,18 +20,10 @@ app.use(cookieParser());
 app.set("trust proxy", 1);
 app.use(
   cors({
-    origin: "https://quote-generator-8of2snd9o-ijz-ahd.vercel.app",
+    origin: true,
     credentials: true,
   })
 );
-app.use((req: Request, res: Response, next) => {
-  res.header("Access-Control-Allow-Origin", req.headers.origin);
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
 
 app.use("/api/auth", authRoute);
 app.use("/api/favorites", favoriteRoute);

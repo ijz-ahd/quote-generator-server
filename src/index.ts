@@ -7,6 +7,7 @@ import favoriteRoute from "./routes/favorites";
 import cors from "cors";
 import { User } from "./entity/User";
 import { Favorite } from "./entity/Favorite";
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const app = express();
 const PORT = process.env.PORT || 5000;

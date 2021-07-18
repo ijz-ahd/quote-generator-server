@@ -60,7 +60,6 @@ const login = async (req: Request, res: Response) => {
     res.set(
       "Set-Cookie",
       cookie.serialize("token", token, {
-        httpOnly: true,
         secure: true,
         sameSite: "none",
         maxAge: 3600 * 24,

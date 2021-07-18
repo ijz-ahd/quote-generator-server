@@ -57,15 +57,12 @@ const login = async (req: Request, res: Response) => {
 
     const token = jwt.sign({ username }, process.env.JWT_SECRET);
 
-    res.set(
-      "Set-Cookie",
-      cookie.serialize("token", token, {
-        secure: true,
-        sameSite: "none",
-        maxAge: 3600 * 24,
-        path: "/",
-      })
-    );
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      maxAge: 3600 * 24,
+      path: "/",
+    });
 
     return res.json({ user, token });
   } catch (err) {

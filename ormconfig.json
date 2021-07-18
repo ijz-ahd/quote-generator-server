@@ -1,10 +1,10 @@
 {
   "type": "postgres",
-  "host": "localhost",
+  "host": "ec2-52-45-183-77.compute-1.amazonaws.com",
   "port": 5432,
-  "username": "postgres",
-  "password": "postgres",
-  "database": "quotedb",
+  "username": "ftiwypnzmkfkld",
+  "password": "4d062fda27ceb585b3b1082027d04126f636c2e05490cca6e99c9bba6ae640ee",
+  "database": "ddu2q8mekqva16",
   "synchronize": true,
   "logging": true,
   "entities": [

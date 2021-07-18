@@ -8,6 +8,8 @@ import cors from "cors";
 import { User } from "./entity/User";
 import { Favorite } from "./entity/Favorite";
 import { Client } from "pg";
+require("dotenv").config();
+
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const app = express();

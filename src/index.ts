@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { createConnection } from "typeorm";
 import cookieParser from "cookie-parser";
-import express from "express";
+import express, { Request, Response } from "express";
 import authRoute from "./routes/auth";
 import favoriteRoute from "./routes/favorites";
 import cors from "cors";
@@ -24,6 +24,14 @@ app.use(
     credentials: true,
   })
 );
+app.use((req: Request, res: Response, next) => {
+  res.header("Access-Control-Allow-Origin", req.headers.origin);
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 app.use("/api/auth", authRoute);
 app.use("/api/favorites", favoriteRoute);

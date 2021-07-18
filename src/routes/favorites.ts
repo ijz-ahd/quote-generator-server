@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import { Favorite } from "../entity/Favorites";
+import { Favorite } from "../entity/Favorite";
 import { User } from "../entity/User";
 import auth from "../middlewares/auth";
 

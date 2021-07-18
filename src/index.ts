@@ -6,7 +6,7 @@ import authRoute from "./routes/auth";
 import favoriteRoute from "./routes/favorites";
 import cors from "cors";
 import { User } from "./entity/User";
-import { Favorite } from "./entity/Favorites";
+import { Favorite } from "./entity/Favorite";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -26,13 +26,7 @@ app.listen(PORT, async () => {
   try {
     await createConnection({
       type: "postgres",
-      entities: [
-        __dirname + process.env.NODE_ENV === "development"
-          ? "/entity/*.ts"
-          : "/entity/*.js",
-        User,
-        Favorite,
-      ],
+      entities: [User, Favorite],
       url: process.env.DB_URL,
     });
     console.log(`Server running on http://localhost:${PORT}`);

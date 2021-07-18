@@ -11,7 +11,7 @@ import {
 import { IsEmail, Length } from "class-validator";
 import { classToPlain, Exclude } from "class-transformer";
 import bcrypt from "bcrypt";
-import { Favorite } from "./Favorites";
+import { Favorite } from "./Favorite";
 
 @Entity("users")
 export class User extends BaseEntity {

@@ -62,7 +62,7 @@ const login = async (req: Request, res: Response) => {
       cookie.serialize("token", token, {
         httpOnly: true,
         // secure: process.env.NODE_ENV === "production",
-        sameSite: "lax",
+        sameSite: "none",
         maxAge: 3600 * 24,
         path: "/",
       })

@@ -64,7 +64,6 @@ const login = async (req: Request, res: Response) => {
         sameSite: "none",
         maxAge: 3600 * 24,
         path: "/",
-        domain: "quote-generator-m5zhz2r17-ijz-ahd.vercel.app",
       })
     );
 
